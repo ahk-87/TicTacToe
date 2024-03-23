@@ -6,8 +6,8 @@ class TicTacToe {
     var player = 'X'
 
     fun play(input: String): Boolean {
-        var x = 0
-        var y = 0
+        val x: Int
+        val y: Int
         try {
             val ins = input.split(" ").map { it.toInt() - 1 }
             x = ins[0]
@@ -39,7 +39,7 @@ class TicTacToe {
     }
 
     fun checkWinner(c: Char): Boolean {
-        var win: Boolean = false
+        var win: Boolean
         for (i in 0..2) {
             // horizontal checking
             win = grid[i].count { it == c } == 3
@@ -66,20 +66,8 @@ class TicTacToe {
 fun main() {
     val game = TicTacToe()
     game.printGrid()
-    var endGame: Boolean = false
+    var endGame = false
     while (!endGame) {
         endGame = game.play(readln())
     }
-
-    // val xCount = input.count { it == 'X' }
-    // val oCount = input.count { it == 'O' }
-    // if (Math.abs(xCount - oCount) > 1) { println("Impossible"); return }
-
-    // val xWin = checkWinner(input, 'X')
-    // val oWin = checkWinner(input, 'O')
-    // if (xWin && oWin) { println("Impossible"); return }
-    // if (xWin){ println("X wins"); return }
-    // if (oWin){ println("O wins"); return }
-
-    // println(if ((xCount + oCount) == 9) "Draw" else "Game not finished")
 }
